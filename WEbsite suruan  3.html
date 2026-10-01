@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suruan Eco Park - Sensasi Sejuk Hutan Sagu Tuban</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hijau-tua': '#162E21',     // Background utama (Klasik)
+                        'hijau-tua-dark': '#0E1F16',
+                        'biru-sungai': '#2C7A8C',   // Ikon & Aksen
+                        'biru-sungai-light': '#3D9BB0',
+                        'coklat-tanah': '#8C5A37',  // Kartu & Dekoratif
+                        'coklat-tanah-dark': '#6B4225',
+                        'spiced-wine': '#743014',   // Tombol & Maps link
+                        'spiced-wine-hover': '#58230D',
+                        'cowhide-cocoa': '#442D1C', // Teks utama & Judul
+                        'krem-kertas': '#F8F4EB',   // Latar Kartu & Elemen Majalah
+                        'krem-terang': '#FFFDF7',
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        subheading: ['Cormorant Garamond', 'serif'],
+                        body: ['Libre Baskerville', 'serif'],
+                        accent: ['Allura', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom typography styles for classic magazine aesthetic */
+        .font-heading { font-family: 'Montserrat', sans-serif; font-weight: 800; }
+        .font-subheading { font-family: 'Cormorant Garamond', serif; }
+        .font-body { font-family: 'Libre Baskerville', serif; }
+        .font-accent { font-family: 'Allura', cursive; }
+
+        /* Classic Magazine Grid Overlay & Borders */
+        .magazine-border {
+            border: 1px solid rgba(140, 90, 55, 0.3);
+            outline: 3px double rgba(140, 90, 55, 0.2);
+            outline-offset: -8px;
+        }
+
+        .magazine-border-gold {
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            outline: 2px solid rgba(212, 175, 55, 0.2);
+            outline-offset: -6px;
+        }
+
+        .dropcap::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            float: left;
+            font-size: 3.8rem;
+            line-height: 0.8;
+            padding-top: 4px;
+            padding-right: 10px;
+            padding-bottom: 2px;
+            color: #743014;
+            font-weight: 700;
+        }
+
+        /* Subtle Noise & Texture */
+        .bg-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+
+        /* Glassmorphic effect with earth warmth */
+        .glass-card {
+            background: rgba(248, 244, 235, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Smooth Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-hijau-tua text-krem-kertas font-body antialiased bg-pattern selection:bg-spiced-wine selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-hijau-tua-dark/95 backdrop-blur-md border-b border-coklat-tanah/30 shadow-2xl transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Title -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-biru-sungai/20 border border-biru-sungai flex items-center justify-center text-biru-sungai group-hover:bg-biru-sungai group-hover:text-white transition-all">
+                        <i class="fa-solid font-bold fa-tree text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="block font-heading text-lg tracking-wider text-krem-terang uppercase">Suruan Eco Park</span>
+                        <span class="block font-accent text-sm text-biru-sungai font-medium -mt-1">Hutan Sagu & Mata Air Tuban</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links (Desktop) -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm tracking-widest font-heading uppercase text-krem-kertas/80">
+                    <a href="#destinasi" class="hover:text-biru-sungai transition-colors">Tentang</a>
+                    <a href="#daya-tarik" class="hover:text-biru-sungai transition-colors">Daya Tarik</a>
+                    <a href="#aktivitas" class="hover:text-biru-sungai transition-colors">Aktivitas</a>
+                    <a href="#kuliner" class="hover:text-biru-sungai transition-colors">Kuliner & UMKM</a>
+                    <a href="#informasi" class="hover:text-biru-sungai transition-colors">Informasi</a>
+                    <a href="#galeri" class="hover:text-biru-sungai transition-colors">Galeri</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#informasi" class="inline-flex items-center gap-2 bg-spiced-wine hover:bg-spiced-wine-hover text-krem-terang px-5 py-2.5 rounded-full font-heading text-xs tracking-wider uppercase transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Petunjuk Lokasi</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Navigation Toggle -->
+                <button id="menu-toggle" aria-label="Buka Menu Navigasi" class="md:hidden text-krem-kertas p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-hijau-tua-dark border-b border-coklat-tanah/40 px-6 py-6 space-y-4">
+            <a href="#destinasi" class="mobile-link block font-heading text-sm uppercase tracking-wider text-krem-kertas hover:text-biru-sungai">Tentang Destinasi</a>
+            <a href="#daya-tarik" class="mobile-link block font-heading text-sm uppercase tracking-wider text-krem-kertas hover:text-biru-sungai">Daya Tarik Utama</a>
+            <a href="#aktivitas" class="mobile-link block font-heading text-sm uppercase tracking-wider text-krem-kertas hover:text-biru-sungai">Aktivitas Seru</a>
+            <a href="#kuliner" class="mobile-link block font-heading text-sm uppercase tracking-wider text-krem-kertas hover:text-biru-sungai">Kuliner & UMKM Sagu</a>
+            <a href="#informasi" class="mobile-link block font-heading text-sm uppercase tracking-wider text-krem-kertas hover:text-biru-sungai">Informasi & Tiket</a>
+            <a href="#galeri" class="mobile-link block font-heading text-sm uppercase tracking-wider text-krem-kertas hover:text-biru-sungai">Galeri Foto</a>
+            <a href="#informasi" class="mobile-link inline-block w-full text-center bg-spiced-wine text-krem-terang py-3 rounded-lg font-heading text-xs uppercase tracking-wider">
+                Lokasi Google Maps
+            </a>
+        </div>
+    </header>
+
+    <!-- 1. FOTO UTAMA & BRAND PITCH (HERO SECTION) -->
+    <section class="relative py-12 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <!-- Magazine Style Top Banner Tag -->
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-coklat-tanah/50 bg-hijau-tua-dark/80 text-biru-sungai font-subheading italic text-lg sm:text-xl">
+                <i class="fa-solid fa-compass text-sm"></i>
+                <span>Edisi Jelajah Alam Kabupaten Tuban</span>
+            </div>
+        </div>
+
+        <!-- Headline & Brand Pitch -->
+        <div class="text-center max-w-4xl mx-auto mb-10">
+            <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl text-krem-terang tracking-tight uppercase leading-tight mb-4">
+                SURUAN ECO PARK
+            </h1>
+            <p class="font-accent text-3xl sm:text-4xl lg:text-5xl text-biru-sungai mb-6">
+                Sensasi sejuk di tengah rimbunnya hutan sagu
+            </p>
+            
+            <div class="w-32 h-1 bg-coklat-tanah/60 mx-auto mb-6 rounded-full"></div>
+
+            <!-- Mandatory Brand Pitch Statement -->
+            <p class="font-subheading text-xl sm:text-2xl lg:text-3xl text-krem-kertas/90 italic leading-relaxed max-w-3xl mx-auto px-2">
+                &ldquo;Sensasi pantai air tawar di tengah rimbunnya hutan sagu, nikmati pesona sumber mata air bening transparan hingga dasar sungai khas Kabupaten Tuban.&rdquo;
+            </p>
+        </div>
+
+        <!-- Magazine Cover Hero Image Frame -->
+        <div class="relative rounded-2xl overflow-hidden magazine-border shadow-2xl bg-hijau-tua-dark">
+            <img src="air terjun.png" 
+                 alt="Keindahan Sungai Transparan Suruan Eco Park Tuban" 
+                 class="w-full h-[380px] sm:h-[500px] lg:h-[620px] object-cover filter brightness-95 hover:scale-105 transition-transform duration-700 ease-out">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-hijau-tua-dark via-transparent to-black/20"></div>
+
+            <!-- Overlay Badges (Editorial Look) -->
+            <div class="absolute top-4 left-4 sm:top-8 sm:left-8 bg-krem-kertas text-cowhide-cocoa p-4 rounded-lg shadow-xl magazine-border max-w-xs hidden sm:block">
+                <span class="block font-heading text-xs uppercase tracking-widest text-spiced-wine">Wisata Alam Alam Bagus</span>
+                <span class="block font-subheading font-bold text-lg leading-snug">Hutan Sagu Alami & Air Jernih Transparan</span>
+            </div>
+
+            <div class="absolute bottom-4 left-4 right-4 sm:bottom-8 sm:left-8 sm:right-auto bg-hijau-tua-dark/90 backdrop-blur-md text-krem-kertas p-4 sm:p-6 rounded-xl border border-coklat-tanah/50 max-w-lg">
+                <div class="flex items-center gap-3 mb-2 text-biru-sungai">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span class="font-heading text-xs uppercase tracking-wider">Kecamatan Merakurak, Tuban</span>
+                </div>
+                <p class="font-body text-xs sm:text-sm text-krem-kertas/90">
+                    Nikmati air bening bagai kaca dengan pepohonan sagu purba yang menaungi alur sungai, menyajikan kesejukan alami tanpa tanding.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. INFORMASI SINGKAT DESTINASI -->
+    <section id="destinasi" class="py-16 bg-hijau-tua-dark border-y border-coklat-tanah/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Editorial Feature Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="flex items-center gap-2 text-biru-sungai">
+                        <span class="h-px w-8 bg-biru-sungai"></span>
+                        <span class="font-heading text-xs uppercase tracking-widest">Tentang Suruan Eco Park</span>
+                    </div>
+
+                    <h2 class="font-heading text-2xl sm:text-4xl text-krem-terang uppercase leading-tight">
+                        Surga Tersembunyi Berwawasan Ekologi
+                    </h2>
+
+                    <p class="dropcap font-body text-sm sm:text-base leading-relaxed text-krem-kertas/90">
+                        Suruan Eco Park merupakan destinasi ekowisata unggulan di Kabupaten Tuban yang memadukan keindahan konservasi hutan sagu dengan kejernihan sumber mata air alami. Suasana rimbun nan asri menciptakan mikroiklim sejuk yang kontras dari iklim pesisir, memberikan sensasi relaksasi penuh ketenangan bagi setiap pengunjung.
+                    </p>
+
+                    <p class="font-body text-sm leading-relaxed text-krem-kertas/80">
+                        Keunikan utama kawasan ini terletak pada ekosistem dasar sungai yang dapat terlihat jelas secara eksplisit, menghadirkan nuansa layaknya &ldquo;pantai air tawar&rdquo; di bawah naungan gubahan kanopi hijau alami.
+                    </p>
+
+                    <!-- Quick Facts Grid -->
+                    <div class="grid grid-cols-3 gap-3 pt-4 text-center">
+                        <div class="p-3 bg-hijau-tua rounded-lg border border-coklat-tanah/30">
+                            <i class="fa-solid fa-droplet text-biru-sungai text-xl mb-1"></i>
+                            <span class="block font-heading text-xs text-krem-terang">Air Bening</span>
+                            <span class="block font-subheading text-xs text-krem-kertas/70">Transparan</span>
+                        </div>
+                        <div class="p-3 bg-hijau-tua rounded-lg border border-coklat-tanah/30">
+                            <i class="fa-solid fa-leaf text-biru-sungai text-xl mb-1"></i>
+                            <span class="block font-heading text-xs text-krem-terang">Hutan Sagu</span>
+                            <span class="block font-subheading text-xs text-krem-kertas/70">Rimbun Asri</span>
+                        </div>
+                        <div class="p-3 bg-hijau-tua rounded-lg border border-coklat-tanah/30">
+                            <i class="fa-solid fa-temperature-arrow-down text-biru-sungai text-xl mb-1"></i>
+                            <span class="block font-heading text-xs text-krem-terang">Udara Sejuk</span>
+                            <span class="block font-subheading text-xs text-krem-kertas/70">Alami</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Magazine Grid Image Showcase -->
+                <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="rounded-xl overflow-hidden magazine-border shadow-lg">
+                            <img src="hutan4.jpg" 
+                                 alt="Air Bening Transparan" class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="bg-coklat-tanah/30 p-5 rounded-xl border border-coklat-tanah/40">
+                            <span class="font-accent text-2xl text-biru-sungai block mb-1">Karakteristik</span>
+                            <p class="font-body text-xs text-krem-kertas/90">
+                                Dasar sungai berpasir halus dengan mata air alami yang mengalir tanpa henti sepanjang tahun.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-6">
+                        <div class="bg-spiced-wine/30 p-5 rounded-xl border border-spiced-wine/50 text-right">
+                            <span class="font-heading text-2xl text-krem-terang block mb-1">100%</span>
+                            <span class="font-subheading text-sm text-krem-kertas/80">Ekowisata Berbasis Komunitas Lokal</span>
+                        </div>
+                        <div class="rounded-xl overflow-hidden magazine-border shadow-lg">
+                            <img src="hutan5.jpg" 
+                                 alt="Rimbun Hutan Sagu" class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. DAYA TARIK (ATTRACTIONS GRID) -->
+    <section id="daya-tarik" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="font-accent text-3xl text-biru-sungai block">Keunggulan Utama</span>
+            <h2 class="font-heading text-3xl sm:text-4xl text-krem-terang uppercase tracking-wide">
+                Daya Tarik Suruan Eco Park
+            </h2>
+            <div class="w-24 h-1 bg-coklat-tanah mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Classic Earth Brown & Paper Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Card 1 -->
+            <div class="bg-krem-kertas text-cowhide-cocoa rounded-xl overflow-hidden magazine-border shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="hutan3.jpg" 
+                             alt="Sumber Mata Air Benir Transparan" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-biru-sungai text-white text-xs font-heading uppercase px-3 py-1 rounded-full shadow">
+                            Ikon Utama
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-spiced-wine">
+                            <i class="fa-solid fa-water text-lg"></i>
+                            <span class="font-heading text-xs uppercase tracking-widest font-bold">Pesona Kejernihan</span>
+                        </div>
+                        <h3 class="font-subheading text-2xl font-bold mb-3 text-cowhide-cocoa leading-tight">
+                            Mata Air Benih Transparan
+                        </h3>
+                        <p class="font-body text-xs sm:text-sm text-cowhide-cocoa/80 leading-relaxed">
+                            Kedalaman air yang jernih bagaikan kaca memungkinkan Anda melihat riak pasir halus, bebatuan alami, serta kehidupan biota air tawar langsung dari atas permukaan.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-coklat-tanah/20 mt-4 flex justify-between items-center text-xs font-heading">
+                    <span class="text-spiced-wine font-bold">Sensasi Pantai Air Tawar</span>
+                    <i class="fa-solid fa-arrow-right text-biru-sungai"></i>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-krem-kertas text-cowhide-cocoa rounded-xl overflow-hidden magazine-border shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="hutan6.jpg" 
+                             alt="Kanopi Hutan Sagu Alami" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-coklat-tanah text-white text-xs font-heading uppercase px-3 py-1 rounded-full shadow">
+                            Konservasi
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-spiced-wine">
+                            <i class="fa-solid fa-tree text-lg"></i>
+                            <span class="font-heading text-xs uppercase tracking-widest font-bold">Rimbun & Sejuk</span>
+                        </div>
+                        <h3 class="font-subheading text-2xl font-bold mb-3 text-cowhide-cocoa leading-tight">
+                            Hutan Sagu Otentik Tuban
+                        </h3>
+                        <p class="font-body text-xs sm:text-sm text-cowhide-cocoa/80 leading-relaxed">
+                            Diapit oleh deretan rumpun pohon sagu bertumpuk yang menciptakan atap peneduh alami, memberikan udara sejuk dan segar seolah terisolasi dari hawa panas perkotaan.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-coklat-tanah/20 mt-4 flex justify-between items-center text-xs font-heading">
+                    <span class="text-spiced-wine font-bold">Mikroiklim Sejuk</span>
+                    <i class="fa-solid fa-arrow-right text-biru-sungai"></i>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-krem-kertas text-cowhide-cocoa rounded-xl overflow-hidden magazine-border shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="pedesaan.jpg" 
+                             alt="Suasana Klasik Pedesaan" class="w-full h-full object-cover">
+                        <span class="absolute top-3 left-3 bg-spiced-wine text-white text-xs font-heading uppercase px-3 py-1 rounded-full shadow">
+                            Nuansa Klasik
+                        </span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-2 text-spiced-wine">
+                            <i class="fa-solid fa-feather-pointed text-lg"></i>
+                            <span class="font-heading text-xs uppercase tracking-widest font-bold">Arsitektur Tradisional</span>
+                        </div>
+                        <h3 class="font-subheading text-2xl font-bold mb-3 text-cowhide-cocoa leading-tight">
+                            Atmosfer Klasik Pedesaan
+                        </h3>
+                        <p class="font-body text-xs sm:text-sm text-cowhide-cocoa/80 leading-relaxed">
+                            Penataan kawasan memanfaatkan gazebo kayu beratap jerami, jembatan kayu estetik, dan hiasan ornamen bambu yang memperkuat karakter klasik ramah lingkungan.
+                        </p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-coklat-tanah/20 mt-4 flex justify-between items-center text-xs font-heading">
+                    <span class="text-spiced-wine font-bold">Keharmonisan Alam</span>
+                    <i class="fa-solid fa-arrow-right text-biru-sungai"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. AKTIVITAS WISATA -->
+    <section id="aktivitas" class="py-16 bg-hijau-tua-dark border-t border-coklat-tanah/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="font-accent text-3xl text-biru-sungai block">Keseruan Pengunjung</span>
+                    <h2 class="font-heading text-3xl sm:text-4xl text-krem-terang uppercase">
+                        Aktivitas Di Suruan Eco Park
+                    </h2>
+                </div>
+                <p class="font-body text-xs sm:text-sm text-krem-kertas/70 max-w-md mt-4 md:mt-0">
+                    Nikmati beragam aktivitas rekreasi air dan relaksasi yang aman untuk keluarga, anak-anak, maupun pemuda pencari tempat foto instagramable.
+                </p>
+            </div>
+
+            <!-- Activities Horizontal Grid / Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Activity 1 -->
+                <div class="bg-hijau-tua rounded-xl p-6 border border-coklat-tanah/40 hover:border-biru-sungai transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-biru-sungai/20 text-biru-sungai flex items-center justify-center text-2xl mb-4 group-hover:bg-biru-sungai group-hover:text-white transition-all">
+                        <i class="fa-solid fa-person-swimming"></i>
+                    </div>
+                    <h3 class="font-subheading text-xl font-bold text-krem-terang mb-2">Berenang & Main Air</h3>
+                    <p class="font-body text-xs text-krem-kertas/80 leading-relaxed">
+                        Merasakan kesejukan air bening tanpa kaporit di area dangkal yang sangat aman dan menyegarkan bagi seluruh anggota keluarga.
+                    </p>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="bg-hijau-tua rounded-xl p-6 border border-coklat-tanah/40 hover:border-biru-sungai transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-biru-sungai/20 text-biru-sungai flex items-center justify-center text-2xl mb-4 group-hover:bg-biru-sungai group-hover:text-white transition-all">
+                        <i class="fa-solid fa-ship"></i>
+                    </div>
+                    <h3 class="font-subheading text-xl font-bold text-krem-terang mb-2">Naik Perahu / Kayak</h3>
+                    <p class="font-body text-xs text-krem-kertas/80 leading-relaxed">
+                        Menyusuri alur sungai berair jernih di bawah naungan rindangnya pohon sagu menggunakan sampel perahu kecil yang menyenangkan.
+                    </p>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="bg-hijau-tua rounded-xl p-6 border border-coklat-tanah/40 hover:border-biru-sungai transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-biru-sungai/20 text-biru-sungai flex items-center justify-center text-2xl mb-4 group-hover:bg-biru-sungai group-hover:text-white transition-all">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <h3 class="font-subheading text-xl font-bold text-krem-terang mb-2">Fotografi Estetik</h3>
+                    <p class="font-body text-xs text-krem-kertas/80 leading-relaxed">
+                        Abadikan momen klasik berpencahayaan alami yang menembus sela-sela dedaunan sagu dengan latar beningnya alur sungai.
+                    </p>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="bg-hijau-tua rounded-xl p-6 border border-coklat-tanah/40 hover:border-biru-sungai transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-biru-sungai/20 text-biru-sungai flex items-center justify-center text-2xl mb-4 group-hover:bg-biru-sungai group-hover:text-white transition-all">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="font-subheading text-xl font-bold text-krem-terang mb-2">Santai Di Gazebo</h3>
+                    <p class="font-body text-xs text-krem-kertas/80 leading-relaxed">
+                        Duduk rileks menikmati semilir angin sejuk, mendengarkan gemericik air sungai sembari menikmati sajian kuliner hangat khas Tuban.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. KULINER / UMKM -->
+    <section id="kuliner" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="bg-krem-kertas text-cowhide-cocoa rounded-2xl p-8 sm:p-12 magazine-border shadow-2xl relative overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                
+                <div class="lg:col-span-6 space-y-5">
+                    <span class="inline-block bg-spiced-wine text-white text-xs font-heading uppercase px-3 py-1 rounded-full">
+                        Potensi Lokal & UMKM
+                    </span>
+                    <h2 class="font-heading text-3xl sm:text-4xl text-cowhide-cocoa uppercase leading-tight">
+                        Cita Rasa Kuliner Sagu Khas Tuban
+                    </h2>
+                    <p class="font-body text-xs sm:text-sm text-cowhide-cocoa/80 leading-relaxed">
+                        Tidak hanya memanjakan mata, kunjungan ke Suruan Eco Park juga memberikan petualangan rasa. Masyarakat lokal mengolah hasil panen pohon sagu menjadi berbagai hidangan lezat berkhasiat tinggi.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-utensils text-spiced-wine mt-1"></i>
+                            <div>
+                                <h4 class="font-subheading font-bold text-lg text-cowhide-cocoa">Bubur Sagu & Jenang Tradisional</h4>
+                                <p class="font-body text-xs text-cowhide-cocoa/70">Olahan olahan tepung sagu murni dengan kuah santan gurih dan gula merah asli.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-cookie-bite text-spiced-wine mt-1"></i>
+                            <div>
+                                <h4 class="font-subheading font-bold text-lg text-cowhide-cocoa">Camilan Sagu Renyah UMKM</h4>
+                                <p class="font-body text-xs text-cowhide-cocoa/70">Aneka kue kering dan keripik olahan warga sekitar sebagai buah tangan khas Merakurak.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-glass-water text-spiced-wine mt-1"></i>
+                            <div>
+                                <h4 class="font-subheading font-bold text-lg text-cowhide-cocoa">Es Degan & Minuman Segar</h4>
+                                <p class="font-body text-xs text-cowhide-cocoa/70">Penyegar dahaga sempurna untuk melengkapi momen bersantai di pinggir sungai.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Image Showcase -->
+                <div class="lg:col-span-6">
+                    <div class="relative">
+                        <div class="rounded-xl overflow-hidden magazine-border-gold shadow-xl">
+                            <img src="sagu.jpg" 
+                                 alt="Kuliner Tradisional Sagu" class="w-full h-80 sm:h-96 object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -left-5 bg-coklat-tanah text-krem-terang p-4 rounded-lg shadow-xl hidden sm:block border border-spiced-wine">
+                            <span class="font-accent text-xl block text-biru-sungai-light">Produk UMKM</span>
+                            <span class="font-heading text-xs uppercase tracking-wider">Pemberdayaan Warga Lokal</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. INFORMASI WISATA & LAYANAN (FACILITIES, TICKETS, MAP) -->
+    <section id="informasi" class="py-16 bg-hijau-tua-dark border-t border-coklat-tanah/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="font-accent text-3xl text-biru-sungai block">Panduan Pengunjung</span>
+                <h2 class="font-heading text-3xl sm:text-4xl text-krem-terang uppercase">
+                    Informasi Wisata & Fasilitas
+                </h2>
+                <div class="w-24 h-1 bg-coklat-tanah mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Grid Layout 3 Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                
+                <!-- Box 1: Jam Buka & Tiket -->
+                <div class="bg-hijau-tua p-6 sm:p-8 rounded-xl border border-coklat-tanah/40 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 text-biru-sungai">
+                            <i class="fa-solid fa-clock text-2xl"></i>
+                            <h3 class="font-heading text-lg text-krem-terang uppercase tracking-wider">Jam Operasional</h3>
+                        </div>
+
+                        <ul class="space-y-4 font-body text-xs sm:text-sm text-krem-kertas/90">
+                            <li class="flex justify-between pb-2 border-b border-coklat-tanah/20">
+                                <span>Senin - Jumat</span>
+                                <span class="font-bold text-biru-sungai">08.00 - 16.30 WIB</span>
+                            </li>
+                            <li class="flex justify-between pb-2 border-b border-coklat-tanah/20">
+                                <span>Sabtu - Minggu / Libur</span>
+                                <span class="font-bold text-biru-sungai">07.30 - 17.00 WIB</span>
+                            </li>
+                            <li class="flex justify-between pb-2">
+                                <span>Tiket Masuk Utama</span>
+                                <span class="font-bold text-krem-terang">Rp 5.000 / orang</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Parkir Motor / Mobil</span>
+                                <span class="font-bold text-krem-terang">Rp 2.000 - Rp 5.000</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Interactive Quick Ticket Estimate -->
+                    <div class="mt-8 pt-4 border-t border-coklat-tanah/30 bg-hijau-tua-dark/60 p-4 rounded-lg">
+                        <span class="font-heading text-xs text-biru-sungai uppercase block mb-2">Simulasi Biaya Masuk</span>
+                        <div class="flex items-center gap-2 mb-2">
+                            <input type="number" id="ticket-count" min="1" value="2" class="w-16 px-2 py-1 bg-hijau-tua border border-coklat-tanah rounded text-krem-terang text-xs text-center">
+                            <span class="font-body text-xs text-krem-kertas">Orang</span>
+                            <button onclick="calculateTicket()" class="ml-auto bg-spiced-wine text-xs px-3 py-1 rounded text-krem-terang font-heading uppercase hover:bg-spiced-wine-hover">Hitung</button>
+                        </div>
+                        <p id="ticket-result" class="font-heading text-xs text-krem-terang font-bold">Total Estimasi: Rp 10.000</p>
+                    </div>
+                </div>
+
+                <!-- Box 2: Fasilitas Lengkap -->
+                <div class="bg-hijau-tua p-6 sm:p-8 rounded-xl border border-coklat-tanah/40">
+                    <div class="flex items-center gap-3 mb-6 text-biru-sungai">
+                        <i class="fa-solid fa-list-check text-2xl"></i>
+                        <h3 class="font-heading text-lg text-krem-terang uppercase tracking-wider">Fasilitas Area</h3>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 text-xs font-body text-krem-kertas/90">
+                        <div class="flex items-center gap-2 p-2 rounded bg-hijau-tua-dark/50">
+                            <i class="fa-solid fa-square-parking text-biru-sungai"></i>
+                            <span>Parkir Luas</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 rounded bg-hijau-tua-dark/50">
+                            <i class="fa-solid fa-restroom text-biru-sungai"></i>
+                            <span>Toilet & Bilas</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 rounded bg-hijau-tua-dark/50">
+                            <i class="fa-solid fa-mosque text-biru-sungai"></i>
+                            <span>Musholla</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 rounded bg-hijau-tua-dark/50">
+                            <i class="fa-solid fa-store text-biru-sungai"></i>
+                            <span>Warung UMKM</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 rounded bg-hijau-tua-dark/50">
+                            <i class="fa-solid fa-vest text-biru-sungai"></i>
+                            <span>Sewa Pelampung</span>
+                        </div>
+                        <div class="flex items-center gap-2 p-2 rounded bg-hijau-tua-dark/50">
+                            <i class="fa-solid fa-chair text-biru-sungai"></i>
+                            <span>Gazebo Santai</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-coklat-tanah/20 border border-coklat-tanah/30 rounded-lg">
+                        <p class="font-body text-xs text-krem-kertas/80 italic">
+                            *Setiap sudut kawasan dilengkapi tempat sampah ramah lingkungan. Mari menjaga kebersihan hutan sagu bersama-sama!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Box 3: Petunjuk Lokasi & Maps CTA -->
+                <div class="bg-hijau-tua p-6 sm:p-8 rounded-xl border border-coklat-tanah/40 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4 text-biru-sungai">
+                            <i class="fa-solid fa-map-location-dot text-2xl"></i>
+                            <h3 class="font-heading text-lg text-krem-terang uppercase tracking-wider">Lokasi Destinasi</h3>
+                        </div>
+
+                        <p class="font-body text-xs sm:text-sm text-krem-kertas/90 mb-4 leading-relaxed">
+                            <strong>Alamat:</strong> Kec. Merakurak, Kabupaten Tuban, Jawa Timur. Berjarak sekitar 15-20 menit perjalanan darat dari pusat kota Tuban.
+                        </p>
+
+                        <div class="bg-hijau-tua-dark/80 p-3 rounded-lg border border-coklat-tanah/30 text-xs text-krem-kertas/70 mb-4">
+                            <i class="fa-solid fa-circle-info text-biru-sungai mr-1"></i>
+                            Akses jalan mulus, dapat dilalui kendaraan roda dua maupun bus pariwisata.
+                        </div>
+                    </div>
+
+                    <!-- Spiced Wine Colored Button Requirement -->
+                    <div>
+                        <a href="https://maps.google.com/?q=Suruan+Eco+Park+Tuban" target="_blank" rel="noopener noreferrer" 
+                           class="w-full inline-flex items-center justify-center gap-3 bg-spiced-wine hover:bg-spiced-wine-hover text-krem-terang font-heading text-xs uppercase tracking-widest py-4 px-6 rounded-lg transition-all shadow-xl hover:shadow-2xl">
+                            <i class="fa-solid fa-diamond-turn-right text-base"></i>
+                            <span>Buka Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. GALLERY (MAGAZINE GRID) -->
+    <section id="galeri" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="font-accent text-3xl text-biru-sungai block">Album Visual</span>
+            <h2 class="font-heading text-3xl sm:text-4xl text-krem-terang uppercase">
+                Galeri Keindahan Suruan
+            </h2>
+            <p class="font-body text-xs sm:text-sm text-krem-kertas/70 mt-2">
+                Potret sudut-sudut eksotis keasrian hutan sagu dan air bening khas Tuban.
+            </p>
+            <div class="w-24 h-1 bg-coklat-tanah mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Magazine Asymmetric Grid Gallery -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            
+            <div class="relative rounded-xl overflow-hidden magazine-border group cursor-pointer h-64 md:h-80" onclick="openModal('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80', 'Mata Air Bening Transparan')">
+                <img src="hutan3.jpg" alt="Galeri 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span class="font-subheading text-white text-base">Sungai Transparan</span>
+                </div>
+            </div>
+
+            <div class="relative rounded-xl overflow-hidden magazine-border group cursor-pointer h-64 md:h-80 md:col-span-2" onclick="openModal('https://images.unsplash.com/photo-1511497584788-876761465087?auto=format&fit=crop&w=1200&q=80', 'Rimbun Hutan Sagu Suruan')">
+                <img src="hutan sagu.jpg" alt="Galeri 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span class="font-subheading text-white text-base">Kanopi Hutan Sagu Tuban</span>
+                </div>
+            </div>
+
+            <div class="relative rounded-xl overflow-hidden magazine-border group cursor-pointer h-64 md:h-80" onclick="openModal('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80', 'Aktivitas Wisata Air')">
+                <img src="air alami.jpg" alt="Galeri 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span class="font-subheading text-white text-base">Kesejukan Air Alami</span>
+                </div>
+            </div>
+
+            <div class="relative rounded-xl overflow-hidden magazine-border group cursor-pointer h-64 md:h-80 md:col-span-2" onclick="openModal('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80', 'Sudut Klasik Pedesaan')">
+                <img src="air terjun.png" alt="Galeri 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span class="font-subheading text-white text-base">Latar Alam</span>
+                </div>
+            </div>
+
+            <div class="relative rounded-xl overflow-hidden magazine-border group cursor-pointer h-64 md:h-80" onclick="openModal('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80', 'Keindahan Refleksi Air')">
+                <img src="hutan7.jpg" alt="Galeri 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span class="font-subheading text-white text-base">Refleksi Pepohonan Sagu</span>
+                </div>
+            </div>
+
+            <div class="relative rounded-xl overflow-hidden magazine-border group cursor-pointer h-64 md:h-80" onclick="openModal('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80', 'Keasrian Alam Tropis')">
+                <img src="hutan.jpg" alt="Galeri 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <span class="font-subheading text-white text-base">Jalur Susur Sungai</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-hijau-tua-dark border-t border-coklat-tanah/40 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-full bg-biru-sungai/20 border border-biru-sungai flex items-center justify-center text-biru-sungai">
+                            <i class="fa-solid fa-tree"></i>
+                        </div>
+                        <span class="font-heading text-lg text-krem-terang uppercase">Suruan Eco Park</span>
+                    </div>
+                    <p class="font-accent text-2xl text-biru-sungai">
+                        Sensasi sejuk di tengah rimbunnya hutan sagu
+                    </p>
+                    <p class="font-body text-xs text-krem-kertas/70 leading-relaxed max-w-sm">
+                        Ekowisata unggulan Kabupaten Tuban dengan daya tarik mata air bening transparan dan hutan sagu yang asri dan melestarikan lingkungan.
+                    </p>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="font-heading text-xs uppercase tracking-widest text-krem-terang mb-2">Tautan Navigasi</h4>
+                    <ul class="space-y-2 font-body text-xs text-krem-kertas/80">
+                        <li><a href="#destinasi" class="hover:text-biru-sungai">Tentang Destinasi</a></li>
+                        <li><a href="#daya-tarik" class="hover:text-biru-sungai">Daya Tarik Utama</a></li>
+                        <li><a href="#aktivitas" class="hover:text-biru-sungai">Aktivitas Wisata</a></li>
+                        <li><a href="#kuliner" class="hover:text-biru-sungai">Kuliner Sagu UMKM</a></li>
+                        <li><a href="#informasi" class="hover:text-biru-sungai">Informasi & Lokasi</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="font-heading text-xs uppercase tracking-widest text-krem-terang mb-2">Kontak & Informasi</h4>
+                    <p class="font-body text-xs text-krem-kertas/80">
+                        <i class="fa-solid fa-location-dot text-biru-sungai mr-2"></i> Merakurak, Kabupaten Tuban, Jawa Timur
+                    </p>
+                    <p class="font-body text-xs text-krem-kertas/80">
+                        <i class="fa-solid fa-envelope text-biru-sungai mr-2"></i> info@suruanecopark.id
+                    </p>
+                    <div class="flex items-center gap-3 pt-2 text-lg text-biru-sungai">
+                        <a href="#" class="w-9 h-9 rounded-full bg-hijau-tua flex items-center justify-center border border-coklat-tanah/30 hover:bg-biru-sungai hover:text-white transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-hijau-tua flex items-center justify-center border border-coklat-tanah/30 hover:bg-biru-sungai hover:text-white transition-all"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-hijau-tua flex items-center justify-center border border-coklat-tanah/30 hover:bg-biru-sungai hover:text-white transition-all"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-coklat-tanah/20 text-center font-body text-xs text-krem-kertas/50 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p>&copy; 2026 Suruan Eco Park Tuban. Hak Cipta Dilindungi.</p>
+                <p class="italic font-subheading text-sm text-biru-sungai">Gaya Editorial & Majalah Ekowisata</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Photo Modal Dialog -->
+    <div id="photo-modal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 backdrop-blur-sm">
+        <div class="relative max-w-4xl w-full bg-hijau-tua-dark rounded-xl overflow-hidden magazine-border">
+            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 text-white bg-spiced-wine rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <img id="modal-img" src="" alt="Detail Foto" class="w-full max-h-[75vh] object-contain bg-black">
+            <div class="p-4 bg-hijau-tua text-center">
+                <p id="modal-caption" class="font-subheading text-lg text-krem-terang"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Mobile Menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Photo Lightbox Modal Functions
+        function openModal(imgUrl, caption) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+
+            modalImg.src = imgUrl;
+            modalCaption.innerText = caption;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('photo-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close Modal when clicking outside content box
+        document.getElementById('photo-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'photo-modal') {
+                closeModal();
+            }
+        });
+
+        // Interactive Ticket Price Estimator
+        function calculateTicket() {
+            const countInput = document.getElementById('ticket-count');
+            const count = parseInt(countInput.value) || 1;
+            const pricePerPerson = 5000;
+            const total = count * pricePerPerson;
+            
+            const resultText = document.getElementById('ticket-result');
+            resultText.innerText = `Total Estimasi: Rp ${total.toLocaleString('id-ID')}`;
+        }
+    </script>
+</body>
+</html>
